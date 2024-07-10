@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col items-center">
-    <div class="border-dotted border-4 border-blue-500 mb-6 mt-4">
+    <div class="border-dotted border-2 border-blue-300 mb-4 mt-4">
       <img src="./assets/gab.gif" alt="Grad Pictures" class="h-[70vh]" />
     </div>
 
-    <div class="flex h-12">
+    <div class="flex h-10">
       <span class="font-bold text-xl font-mono">Gab's Grad Dedications</span>
     </div>
     <div class="flex h-10">
