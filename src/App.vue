@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center">
-    <img src="./assets/gab.gif" alt="Grad Pictures" class="h-[75vh] mb-4" />
+    <img src="./assets/gab.gif" alt="Grad Pictures" class="h-[70vh] mb-4" />
     <div class="flex h-12">
       <input
         type="text"
