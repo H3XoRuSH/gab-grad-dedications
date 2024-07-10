@@ -66,10 +66,10 @@
                 <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                   <div class="px-4 sm:px-6">
                     <DialogTitle class="text-base font-semibold leading-6 text-gray-900"
-                      >Hello {{ data }}!</DialogTitle
+                      >Hello {{ curName }}!</DialogTitle
                     >
                   </div>
-                  <div class="relative mt-6 flex-1 px-4 sm:px-6"></div>
+                  <div class="relative mt-6 flex-1 px-4 sm:px-6">{{ curMessage }}</div>
                 </div>
               </DialogPanel>
             </TransitionChild>
@@ -89,6 +89,8 @@ import axios from 'axios'
 const open = ref(false)
 const code = ref('')
 const data = ref(null)
+const curName = ref('')
+const curMessage = ref('')
 
 const fetchData = async () => {
   try {
@@ -97,10 +99,6 @@ const fetchData = async () => {
     )
     const curData = response.data
     data.value = initData(curData)
-    console.log(data.value)
-
-    const curCode = 7700508538822587449
-    console.log(data.value[curCode])
   } catch (error) {
     console.error('Error fetching data:', error)
   }
@@ -127,6 +125,16 @@ const handleClick = () => {
     code.value = ''
   } else {
     open.value = true
+
+    if (code.value in data.value) {
+      const lowerName = data.value[code.value].name
+      curName.value = lowerName.charAt(0).toUpperCase() + lowerName.slice(1)
+      curMessage.value = data.value[code.value].message
+    } else {
+      curName.value = 'there'
+      curMessage.value =
+        "It seems like I currently have no message for you. I might have forgotten to create one, I'm sorry!"
+    }
   }
 
   getMessage()
