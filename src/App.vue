@@ -130,8 +130,7 @@ const handleClick = () => {
     open.value = true
 
     if (code.value in data.value) {
-      const lowerName = data.value[code.value].name
-      curName.value = lowerName.charAt(0).toUpperCase() + lowerName.slice(1)
+      curName.value = data.value[code.value].name
       curMessage.value = data.value[code.value].message
     } else {
       curName.value = 'there'

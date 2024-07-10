@@ -1,6 +1,7 @@
 import os
 import json
 import sys
+import random
 
 if not os.environ.get('PYTHONHASHSEED'):
     os.environ['PYTHONHASHSEED'] = '69420'
@@ -16,7 +17,20 @@ for filename in filenames:
 
     with open(filepath, 'r') as f:
       name = filename[:-4]
-      hashname = str(hash(name))
+
+      hashnamenum = str(hash(name))
+      hashname = ''
+      if hashnamenum[0] == '-':
+        hashname += 'gabuu_'
+        hashnamenum = hashnamenum[1:]
+      else:
+        hashname += 'gab_'
+
+      for i in hashnamenum:
+        curChar = chr(ord('a') + int(i))
+
+        hashname += curChar
+      
       contents = f.read()
 
       string.append({
