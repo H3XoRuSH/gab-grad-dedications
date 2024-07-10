@@ -1,6 +1,9 @@
 <template>
   <div class="flex flex-col items-center">
-    <img src="./assets/gab.gif" alt="Grad Pictures" class="h-[70vh] mb-4 mt-4" />
+    <div class="border-dotted border-4 border-blue-500 mb-4 mt-4">
+      <img src="./assets/gab.gif" alt="Grad Pictures" class="h-[70vh]" />
+    </div>
+
     <div class="flex h-12">
       <span class="font-bold text-xl font-mono">Gab's Grad Dedications</span>
     </div>
