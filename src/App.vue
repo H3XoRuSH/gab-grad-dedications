@@ -3,7 +3,7 @@
     <input
       type="text"
       v-model="code"
-      class="mr-2 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+      class="w-40 mr-2 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
       placeholder="Enter your code"
     />
     <button
@@ -66,10 +66,10 @@
                 <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                   <div class="px-4 sm:px-6">
                     <DialogTitle class="text-base font-semibold leading-6 text-gray-900"
-                      >Testing</DialogTitle
+                      >Hello {{ code }}!</DialogTitle
                     >
                   </div>
-                  <div class="relative mt-6 flex-1 px-4 sm:px-6">{{ code }}</div>
+                  <div class="relative mt-6 flex-1 px-4 sm:px-6">{{ data.title }}</div>
                 </div>
               </DialogPanel>
             </TransitionChild>
@@ -88,6 +88,22 @@ import { XMarkIcon } from '@heroicons/vue/24/outline'
 const open = ref(false)
 const code = ref('')
 
+const data = ref(null)
+const fetchData = async () => {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+    if (!response.ok) {
+      throw new Error(`Error fetching data: ${response.statusText}`)
+    }
+    const jsonData = await response.json()
+    data.value = jsonData
+  } catch (error) {
+    console.error('Error:', error)
+  }
+}
+
+fetchData()
+
 const handleClick = () => {
   const openVal = open.value
 
@@ -97,5 +113,11 @@ const handleClick = () => {
   } else {
     open.value = true
   }
+
+  getMessage()
+}
+
+const getMessage = () => {
+  console.log('test')
 }
 </script>
