@@ -1,13 +1,22 @@
 <template>
-  <button
-    type="button"
-    class="fixed bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
-    @click="open = true"
-  >
-    Open Dialog
-  </button>
+  <div class="flex justify-center">
+    <input
+      type="text"
+      v-model="code"
+      class="mr-2 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+      placeholder="Enter your code"
+    />
+    <button
+      type="button"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+      @click="handleClick"
+    >
+      Submit
+    </button>
+  </div>
+
   <TransitionRoot as="template" :show="open">
-    <Dialog class="relative z-10" @close="open = false">
+    <Dialog class="relative z-10">
       <TransitionChild
         as="template"
         enter="ease-in-out duration-500"
@@ -46,7 +55,7 @@
                     <button
                       type="button"
                       class="relative rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                      @click="open = false"
+                      @click="handleClick"
                     >
                       <span class="absolute -inset-2.5" />
                       <span class="sr-only">Close panel</span>
@@ -60,7 +69,7 @@
                       >Testing</DialogTitle
                     >
                   </div>
-                  <div class="relative mt-6 flex-1 px-4 sm:px-6">Put content here.</div>
+                  <div class="relative mt-6 flex-1 px-4 sm:px-6">{{ code }}</div>
                 </div>
               </DialogPanel>
             </TransitionChild>
@@ -77,4 +86,16 @@ import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } fro
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 
 const open = ref(false)
+const code = ref('')
+
+const handleClick = () => {
+  const openVal = open.value
+
+  if (openVal == true) {
+    open.value = false
+    code.value = ''
+  } else {
+    open.value = true
+  }
+}
 </script>
