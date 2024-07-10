@@ -1,18 +1,21 @@
 <template>
-  <div class="flex justify-center">
-    <input
-      type="text"
-      v-model="code"
-      class="w-40 mr-2 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
-      placeholder="Enter your code"
-    />
-    <button
-      type="button"
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
-      @click="handleClick"
-    >
-      Submit
-    </button>
+  <div class="flex flex-col items-center">
+    <img src="./assets/gab.gif" alt="Grad Pictures" class="h-[75vh] mb-4" />
+    <div class="flex h-12">
+      <input
+        type="text"
+        v-model="code"
+        class="w-40 h-full mr-2 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+        placeholder="Enter your code"
+      />
+      <button
+        type="button"
+        class="h-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+        @click="handleClick"
+      >
+        Submit
+      </button>
+    </div>
   </div>
 
   <TransitionRoot as="template" :show="open">
