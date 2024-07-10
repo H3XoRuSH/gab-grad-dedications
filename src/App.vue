@@ -69,7 +69,7 @@
                       >Hello {{ code }}!</DialogTitle
                     >
                   </div>
-                  <div class="relative mt-6 flex-1 px-4 sm:px-6">{{ data.title }}</div>
+                  <div class="relative mt-6 flex-1 px-4 sm:px-6"></div>
                 </div>
               </DialogPanel>
             </TransitionChild>
@@ -91,12 +91,16 @@ const code = ref('')
 const data = ref(null)
 const fetchData = async () => {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+    const response = await fetch(
+      'https://raw.githubusercontent.com/H3XoRuSH/gab-grad-dedications/main/public/msgs/msgs.json'
+    )
     if (!response.ok) {
       throw new Error(`Error fetching data: ${response.statusText}`)
     }
-    const jsonData = await response.json()
-    data.value = jsonData
+    const textData = await response.text()
+    console.log(textData)
+    // const jsonData = JSON.parse(textData)
+    // data.value = jsonData
   } catch (error) {
     console.error('Error:', error)
   }

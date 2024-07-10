@@ -1,7 +1,7 @@
 import os
 import json
 
-string = {}
+string = []
 filenames = os.listdir()
 
 for filename in filenames:
@@ -11,8 +11,9 @@ for filename in filenames:
     with open(filepath, 'r') as f:
       contents = f.read()
 
-      string[filename[:-4]] = {
+      string.append({
+        "name": filename[:-4],
         "message": contents
-      }
+      })
 
 print(json.dumps(string, indent=2))
