@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center">
     <img src="./assets/gab.gif" alt="Grad Pictures" class="h-[70vh] mb-4" />
     <div class="flex h-12">
-      <span class="font-bold text-xl">Gab's Grad Dedications</span>
+      <span class="font-bold text-xl font-mono">Gab's Grad Dedications</span>
     </div>
     <div class="flex h-10">
       <input
@@ -71,7 +71,7 @@
                 </TransitionChild>
                 <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                   <div class="px-4 sm:px-6">
-                    <DialogTitle class="text-base font-semibold leading-6 text-gray-900"
+                    <DialogTitle class="text-lg font-semibold leading-6 text-gray-900"
                       >Hello {{ curName }}!</DialogTitle
                     >
                   </div>
