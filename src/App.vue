@@ -1,7 +1,8 @@
 <template>
   <div class="flex flex-col items-center">
     <img src="./assets/gab.gif" alt="Grad Pictures" class="h-[70vh] mb-4" />
-    <div class="flex h-12">
+    <div class="flex h-12"><span class="font-bold">Gab's Grad Dedications</span></div>
+    <div class="flex h-10">
       <input
         type="text"
         v-model="code"
