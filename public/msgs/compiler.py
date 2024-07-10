@@ -9,11 +9,11 @@ if not os.environ.get('PYTHONHASHSEED'):
 
 string = []
 codenames = ''
-filenames = os.listdir()
+filenames = os.listdir(os.path.join(os.path.dirname(__file__), 'raw'))
 
 for filename in filenames:
   if filename.endswith(".txt") and filename != "codes.txt":
-    filepath = os.path.join(".", filename)
+    filepath = os.path.join(os.path.join(os.path.dirname(__file__), 'raw'), filename)
 
     with open(filepath, 'r') as f:
       name = filename[:-4]
