@@ -11,12 +11,12 @@ codenames = ''
 filenames = os.listdir()
 
 for filename in filenames:
-  if filename.endswith(".txt"):
+  if filename.endswith(".txt") and filename != "codes.txt":
     filepath = os.path.join(".", filename)
 
     with open(filepath, 'r') as f:
       name = filename[:-4]
-      hashname = hash(name)
+      hashname = str(hash(name))
       contents = f.read()
 
       string.append({

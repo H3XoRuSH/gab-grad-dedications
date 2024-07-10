@@ -66,7 +66,7 @@
                 <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                   <div class="px-4 sm:px-6">
                     <DialogTitle class="text-base font-semibold leading-6 text-gray-900"
-                      >Hello {{ code }}!</DialogTitle
+                      >Hello {{ data }}!</DialogTitle
                     >
                   </div>
                   <div class="relative mt-6 flex-1 px-4 sm:px-6"></div>
@@ -97,6 +97,10 @@ const fetchData = async () => {
     )
     const curData = response.data
     data.value = initData(curData)
+    console.log(data.value)
+
+    const curCode = 7700508538822587449
+    console.log(data.value[curCode])
   } catch (error) {
     console.error('Error fetching data:', error)
   }
@@ -105,7 +109,10 @@ const fetchData = async () => {
 const initData = (curData) => {
   var newData = {}
   for (let i = 0; i < curData.length; i++) {
-    newData[curData[i].name] = curData[i].message
+    newData[curData[i].code] = {
+      name: curData[i].name,
+      message: curData[i].message
+    }
   }
   return newData
 }
