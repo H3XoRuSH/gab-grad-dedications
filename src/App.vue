@@ -144,11 +144,5 @@ const handleClick = () => {
         "It seems like I currently have no message for you. Please recheck the code I sent you! If it still fails or I have not sent you a code, I might have forgotten to create one, I'm sorry!"
     }
   }
-
-  getMessage()
-}
-
-const getMessage = () => {
-  console.log('test')
 }
 </script>
