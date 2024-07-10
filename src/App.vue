@@ -1,10 +1,12 @@
 <template>
   <div class="flex flex-col items-center">
     <img src="./assets/gab.gif" alt="Grad Pictures" class="h-[70vh] mb-4" />
-    <div class="flex h-12"><span class="font-bold">Gab's Grad Dedications</span></div>
+    <div class="flex h-12">
+      <span class="font-bold text-xl">Gab's Grad Dedications</span>
+    </div>
     <div class="flex h-10">
       <input
-        type="text"
+        type="password"
         v-model="code"
         class="w-40 h-full mr-2 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
         placeholder="Enter your code"
@@ -136,7 +138,7 @@ const handleClick = () => {
     } else {
       curName.value = 'there'
       curMessage.value =
-        "It seems like I currently have no message for you. I might have forgotten to create one, I'm sorry!"
+        "It seems like I currently have no message for you. Please recheck the code I sent you! If it still fails or I have not sent you a code, I might have forgotten to create one, I'm sorry!"
     }
   }
 
