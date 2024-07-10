@@ -84,26 +84,30 @@
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
+import axios from 'axios'
 
 const open = ref(false)
 const code = ref('')
-
 const data = ref(null)
+
 const fetchData = async () => {
   try {
-    const response = await fetch(
+    const response = await axios.get(
       'https://raw.githubusercontent.com/H3XoRuSH/gab-grad-dedications/main/public/msgs/msgs.json'
     )
-    if (!response.ok) {
-      throw new Error(`Error fetching data: ${response.statusText}`)
-    }
-    const textData = await response.text()
-    console.log(textData)
-    // const jsonData = JSON.parse(textData)
-    // data.value = jsonData
+    const curData = response.data
+    data.value = initData(curData)
   } catch (error) {
-    console.error('Error:', error)
+    console.error('Error fetching data:', error)
   }
+}
+
+const initData = (curData) => {
+  var newData = {}
+  for (let i = 0; i < curData.length; i++) {
+    newData[curData[i].name] = curData[i].message
+  }
+  return newData
 }
 
 fetchData()
