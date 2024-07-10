@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center">
-    <div class="border-dotted border-4 border-blue-500 mb-4 mt-4">
+    <div class="border-dotted border-4 border-blue-500 mb-6 mt-4">
       <img src="./assets/gab.gif" alt="Grad Pictures" class="h-[70vh]" />
     </div>
 
@@ -11,7 +11,7 @@
       <input
         type="password"
         v-model="code"
-        class="w-40 h-full mr-2 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+        class="w-40 h-full mr-2 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
         placeholder="Enter your code"
       />
       <button
