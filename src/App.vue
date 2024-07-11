@@ -1,7 +1,8 @@
 <template>
   <div class="flex flex-col items-center">
     <div class="border-dotted border-2 border-blue-300 mb-4 mt-4">
-      <img src="./assets/gab.gif" alt="Grad Pictures" class="h-[70vh]" />
+      <img v-if="imageLoaded" src="./assets/gab.gif" alt="Grad Pictures" class="h-[70vh]" />
+      <img v-else src="./assets/loading.gif" alt="Loading..." class="h-[70vh]" />
     </div>
 
     <div class="flex h-10">
@@ -99,7 +100,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import axios from 'axios'
@@ -109,6 +110,16 @@ const code = ref('')
 const data = ref(null)
 const curName = ref('')
 const curMessage = ref('')
+
+const imageLoaded = ref(false)
+
+onMounted(() => {
+  const timeout = Math.floor(Math.random() * 2500) + 1500
+  console.log(timeout)
+  setTimeout(() => {
+    imageLoaded.value = true
+  }, timeout)
+})
 
 const fetchData = async () => {
   try {
