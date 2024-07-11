@@ -30,3 +30,4 @@ coverage
 *.tsbuildinfo
 public/msgs/codes.txt
 /public/msgs/final
+/public/msgs/raw
