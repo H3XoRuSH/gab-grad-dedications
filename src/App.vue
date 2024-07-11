@@ -79,6 +79,15 @@
                     >
                   </div>
                   <div class="relative mt-6 flex-1 px-4 sm:px-6">{{ curMessage }}</div>
+                  <div v-if="curName != 'there'" class="relative px-4 sm:px-6">
+                    See all of my grad pics
+                    <a
+                      href="https://drive.google.com/drive/folders/13EkwpzWRE9AuBQRbS_1R0R9JgBpJ1SXq?usp=sharing"
+                      target="_blank"
+                      class="text-cyan-700 underline"
+                      >here</a
+                    >.
+                  </div>
                 </div>
               </DialogPanel>
             </TransitionChild>
