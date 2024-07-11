@@ -114,7 +114,7 @@ const curMessage = ref('')
 const imageLoaded = ref(false)
 
 onMounted(() => {
-  const timeout = Math.floor(Math.random() * 2500) + 1500
+  const timeout = Math.floor(Math.random() * 1500) + 1500
   setTimeout(() => {
     imageLoaded.value = true
   }, timeout)
