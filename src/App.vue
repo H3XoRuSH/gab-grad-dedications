@@ -11,7 +11,7 @@
       <input
         type="password"
         v-model="code"
-        class="w-40 h-full mr-2 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+        class="w-40 h-full mr-3 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
         placeholder="Enter your code"
       />
       <button
@@ -35,7 +35,7 @@
         leave-from="opacity-100"
         leave-to="opacity-0"
       >
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+        <div class="fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity" />
       </TransitionChild>
 
       <div class="fixed inset-0 overflow-hidden">
