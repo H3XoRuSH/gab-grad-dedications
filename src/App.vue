@@ -1,8 +1,7 @@
 <template>
   <div class="flex flex-col items-center">
     <div class="border-dotted border-2 border-blue-300 mb-4 mt-4">
-      <img v-if="!imageLoaded" src="./assets/loading.gif" alt="Loading..." class="h-[70vh]" />
-      <img v-else src="./assets/gab.gif" alt="Grad Pictures" class="h-[70vh]" />
+      <img src="./assets/gab.gif" alt="Grad Pictures" class="h-[70vh]" />
     </div>
 
     <div class="flex h-10">
@@ -110,15 +109,6 @@ const code = ref('')
 const data = ref(null)
 const curName = ref('')
 const curMessage = ref('')
-
-const imageLoaded = ref(false)
-
-onMounted(() => {
-  const timeout = Math.floor(Math.random() * 1500) + 1500
-  setTimeout(() => {
-    imageLoaded.value = true
-  }, timeout)
-})
 
 const fetchData = async () => {
   try {
