@@ -63,11 +63,11 @@
           >
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
-                <div class="mt-3 text-center sm:mt-0 sm:text-left">
+                <div class="sm:mt-0 sm:text-left">
                   <DialogTitle class="text-lg leading-6 font-medium text-gray-900">
                     Hello {{ curName }}!
                   </DialogTitle>
-                  <div class="mt-2">
+                  <div class="mt-3">
                     <p class="text-sm text-gray-500 text-justify">{{ curMessage }}</p>
                   </div>
                 </div>
