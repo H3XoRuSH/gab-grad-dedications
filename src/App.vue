@@ -16,7 +16,7 @@
       />
       <button
         type="button"
-        class="h-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+        class="h-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition"
         @click="handleClick"
       >
         Submit
@@ -63,12 +63,12 @@
           >
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
-                <div class="sm:mt-0 sm:text-left">
-                  <DialogTitle class="text-lg leading-6 font-medium text-gray-900">
-                    Hello {{ curName }}!
-                  </DialogTitle>
+                <div class="text-left">
+                  <DialogTitle class="text-lg leading-6 font-medium text-gray-900"
+                    >Hello {{ curName }}!</DialogTitle
+                  >
                   <div class="mt-3">
-                    <p class="text-sm text-gray-500 text-justify">{{ curMessage }}</p>
+                    <p class="text-sm text-gray-500">{{ curMessage }}</p>
                   </div>
                 </div>
               </div>
@@ -87,7 +87,7 @@
               </div>
               <button
                 type="button"
-                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm transition"
                 @click="handleClick"
               >
                 Close
