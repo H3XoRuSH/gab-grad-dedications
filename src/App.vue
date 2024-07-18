@@ -25,74 +25,76 @@
   </div>
 
   <TransitionRoot as="template" :show="open">
-    <Dialog class="relative z-10">
-      <TransitionChild
-        as="template"
-        enter="ease-in-out duration-500"
-        enter-from="opacity-0"
-        enter-to="opacity-100"
-        leave="ease-in-out duration-500"
-        leave-from="opacity-100"
-        leave-to="opacity-0"
+    <Dialog class="fixed inset-0 z-10 overflow-y-auto">
+      <div
+        class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0"
       >
-        <div class="fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity" />
-      </TransitionChild>
+        <TransitionChild
+          as="template"
+          enter="ease-out duration-300"
+          enter-from="opacity-0"
+          enter-to="opacity-100"
+          leave="ease-in duration-200"
+          leave-from="opacity-100"
+          leave-to="opacity-0"
+        >
+          <div
+            class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+            aria-hidden="true"
+          ></div>
+        </TransitionChild>
 
-      <div class="fixed inset-0 overflow-hidden">
-        <div class="absolute inset-0 overflow-hidden">
-          <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-            <TransitionChild
-              as="template"
-              enter="transform transition ease-in-out duration-500 sm:duration-700"
-              enter-from="translate-x-full"
-              enter-to="translate-x-0"
-              leave="transform transition ease-in-out duration-500 sm:duration-700"
-              leave-from="translate-x-0"
-              leave-to="translate-x-full"
-            >
-              <DialogPanel class="pointer-events-auto relative w-screen max-w-md">
-                <TransitionChild
-                  as="template"
-                  enter="ease-in-out duration-500"
-                  enter-from="opacity-0"
-                  enter-to="opacity-100"
-                  leave="ease-in-out duration-500"
-                  leave-from="opacity-100"
-                  leave-to="opacity-0"
-                >
-                  <div class="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
-                    <button
-                      type="button"
-                      class="relative rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                      @click="handleClick"
-                    >
-                      <span class="absolute -inset-2.5" />
-                      <span class="sr-only">Close panel</span>
-                      <XMarkIcon class="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                </TransitionChild>
-                <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
-                  <div class="px-4 sm:px-6">
-                    <DialogTitle class="text-lg font-semibold leading-6 text-gray-900"
-                      >Hello {{ curName }}!</DialogTitle
-                    >
-                  </div>
-                  <div class="relative mt-6 flex-1 px-4 sm:px-6">{{ curMessage }}</div>
-                  <div v-if="curName != 'there'" class="relative px-4 sm:px-6">
-                    See all of my grad pics
-                    <a
-                      href="https://drive.google.com/drive/folders/13EkwpzWRE9AuBQRbS_1R0R9JgBpJ1SXq?usp=sharing"
-                      target="_blank"
-                      class="text-cyan-700 underline"
-                      >here</a
-                    >.
+        <!-- This element is to trick the browser into centering the modal contents. -->
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true"
+          >&#8203;</span
+        >
+
+        <TransitionChild
+          as="template"
+          enter="ease-out duration-300"
+          enter-from="opacity-0 scale-95"
+          enter-to="opacity-100 scale-100"
+          leave="ease-in duration-200"
+          leave-from="opacity-100 scale-100"
+          leave-to="opacity-0 scale-95"
+        >
+          <DialogPanel
+            class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+          >
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+              <div class="sm:flex sm:items-start">
+                <div class="mt-3 text-center sm:mt-0 sm:text-left">
+                  <DialogTitle class="text-lg leading-6 font-medium text-gray-900">
+                    Hello {{ curName }}!
+                  </DialogTitle>
+                  <div class="mt-2">
+                    <p class="text-sm text-gray-500 text-justify">{{ curMessage }}</p>
                   </div>
                 </div>
-              </DialogPanel>
-            </TransitionChild>
-          </div>
-        </div>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:items-center">
+              <div class="flex-1 text-sm text-gray-500">
+                <p class="text-sm text-gray-500">
+                  See all of my grad pics
+                  <a
+                    href="https://drive.google.com/drive/folders/13EkwpzWRE9AuBQRbS_1R0R9JgBpJ1SXq?usp=sharing"
+                    target="_blank"
+                    class="text-cyan-700 underline"
+                    >here</a
+                  >.
+                </p>
+              </div>
+              <button
+                type="button"
+                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                @click="handleClick"
+              >
+                Close
+              </button>
+            </div>
+          </DialogPanel>
+        </TransitionChild>
       </div>
     </Dialog>
   </TransitionRoot>
@@ -101,7 +103,6 @@
 <script setup>
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
-import { XMarkIcon } from '@heroicons/vue/24/outline'
 import axios from 'axios'
 
 const open = ref(false)
